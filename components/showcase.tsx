@@ -3,29 +3,29 @@
 import Image from "next/image"
 import { useEffect, useRef } from "react"
 
+const highlights = [
+  {
+    src: "/images/showcase-meeting.jpg",
+    alt: "Audit and assurance meeting",
+    title: "Audit and Assurance",
+    description: "Comprehensive reviews that strengthen reporting quality and stakeholder confidence.",
+  },
+  {
+    src: "/images/showcase-brainstorm.jpg",
+    alt: "Financial planning discussion",
+    title: "Tax and Accounting",
+    description: "Reliable compliance and reporting support with practical guidance at each step.",
+  },
+  {
+    src: "/images/showcase-office.jpg",
+    alt: "Business consulting session",
+    title: "Business Consulting",
+    description: "Advisory support focused on performance, controls, and strategic growth decisions.",
+  },
+]
+
 export function Showcase() {
   const showcaseRef = useRef<HTMLElement>(null)
-  const highlights = [
-    {
-      src: "/images/showcase-meeting.jpg",
-      alt: "Audit and assurance meeting",
-      title: "Audit and Assurance",
-      description: "Comprehensive reviews that strengthen reporting accuracy and confidence.",
-    },
-    {
-      src: "/images/showcase-brainstorm.jpg",
-      alt: "Financial planning discussion",
-      title: "Tax and Accounting",
-      description: "Practical support for compliance, reporting, and sustainable decisions.",
-      offsetClass: "md:mt-12",
-    },
-    {
-      src: "/images/showcase-office.jpg",
-      alt: "Business consulting session",
-      title: "Business Consulting",
-      description: "Advisory support focused on operational improvement and strategic growth.",
-    },
-  ]
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -35,7 +35,7 @@ export function Showcase() {
             entry.target.querySelectorAll(".reveal-child").forEach((el, index) => {
               setTimeout(() => {
                 el.classList.add("active")
-              }, index * 150)
+              }, index * 120)
             })
           }
         })
@@ -51,38 +51,40 @@ export function Showcase() {
   }, [])
 
   return (
-    <section id="about" ref={showcaseRef} className="py-16 md:py-24 px-6 relative z-10 bg-brand-50">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-5xl font-serif font-medium text-brand-900 mb-4">
-            Your Trusted Partner in Audit and Consulting
+    <section id="about" ref={showcaseRef} className="relative z-10 px-5 py-14 md:px-6 md:py-24">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-10 text-center md:mb-14">
+          <span className="eyebrow-chip mb-4">About Ignite</span>
+          <h2 className="text-3xl font-extrabold tracking-tight text-brand-900 md:text-5xl">
+            Trusted Financial <span className="gradient-text">Partner</span>
           </h2>
-          <p className="text-brand-600 max-w-3xl mx-auto">
-            Ignite Associates has built a strong reputation for delivering world-class service across Tanzania with a
-            focus on quality, integrity, and value for every client.
+          <p className="mx-auto mt-4 max-w-3xl text-sm text-slate-600 md:text-lg">
+            We support businesses, public institutions, and organizations across Tanzania with professional service,
+            technical depth, and dependable execution.
           </p>
         </div>
 
-        {/* Image Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {highlights.map((highlight, index) => (
-            <div
-              key={index}
-              className={`aspect-[4/5] rounded-xl overflow-hidden shadow-lg reveal-child opacity-0 translate-y-8 relative ${highlight.offsetClass ?? ""}`}
+        <div className="grid gap-4 md:grid-cols-3 md:gap-6">
+          {highlights.map((highlight) => (
+            <article
+              key={highlight.title}
+              className="reveal-child premium-card translate-y-8 overflow-hidden opacity-0 transition-all duration-700"
             >
-              <Image
-                src={highlight.src}
-                alt={highlight.alt}
-                fill
-                loading="lazy"
-                className="object-cover hover:scale-105 transition-transform duration-700"
-                sizes="(max-width: 768px) 100vw, 33vw"
-              />
-              <div className="absolute inset-x-0 bottom-0 p-5 bg-gradient-to-t from-black/75 to-transparent">
-                <h3 className="text-white font-serif text-2xl mb-1">{highlight.title}</h3>
-                <p className="text-white/90 text-sm leading-relaxed">{highlight.description}</p>
+              <div className="relative aspect-[5/4]">
+                <Image
+                  src={highlight.src}
+                  alt={highlight.alt}
+                  fill
+                  loading="lazy"
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
               </div>
-            </div>
+              <div className="p-5 md:p-6">
+                <h3 className="text-2xl font-extrabold text-brand-900">{highlight.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-slate-600">{highlight.description}</p>
+              </div>
+            </article>
           ))}
         </div>
       </div>

@@ -17,29 +17,30 @@ export function LogoMarquee() {
   const marqueeClients = [...clients, ...clients]
 
   return (
-    <section className="w-full overflow-hidden bg-white border-y border-brand-100 py-12 md:py-14 relative z-10">
-      <div className="max-w-7xl mx-auto px-6">
-        <p className="text-center text-[10px] md:text-xs text-brand-500 mb-8 uppercase tracking-[0.24em] font-bold">
+    <section className="relative z-10 w-full overflow-hidden border-y border-brand-200/70 bg-white/75 py-9 md:py-11">
+      <div className="mx-auto max-w-7xl px-5 md:px-6">
+        <p className="mb-6 text-center text-[10px] font-bold uppercase tracking-[0.24em] text-slate-500 md:mb-7 md:text-xs">
           Serving Organizations Across Tanzania
         </p>
 
-        <div className="flex relative w-full">
-          <div className="flex animate-scroll gap-8 md:gap-12 px-2 items-center hover:[animation-play-state:paused]">
+        <div className="relative flex w-full marquee-edge-fade">
+          <div className="flex animate-scroll items-center gap-4 px-1 hover:[animation-play-state:paused] md:gap-6">
             {marqueeClients.map((client, index) => (
-              <div key={`${client.name}-${index}`} className="flex items-center gap-3 md:gap-5 min-w-max">
-                <div className="relative w-10 h-10 md:w-12 md:h-12 overflow-hidden shrink-0">
+              <div
+                key={`${client.name}-${index}`}
+                className="flex min-w-max items-center gap-2.5 rounded-full border border-brand-100 bg-white px-3 py-2 shadow-sm md:gap-3"
+              >
+                <div className="relative h-8 w-8 shrink-0 overflow-hidden rounded-full bg-slate-100 md:h-9 md:w-9">
                   <Image
                     src={client.logo}
                     alt={`${client.name} logo`}
                     fill
                     loading="lazy"
-                    className="object-contain grayscale opacity-80"
-                    sizes="48px"
+                    className="object-cover"
+                    sizes="36px"
                   />
                 </div>
-                <p className="text-sm md:text-lg lg:text-xl font-serif font-medium text-brand-600 whitespace-nowrap">
-                  {client.name}
-                </p>
+                <p className="text-[11px] font-semibold text-slate-700 md:text-sm">{client.name}</p>
               </div>
             ))}
           </div>

@@ -1,6 +1,34 @@
 "use client"
 
 import { useEffect, useRef } from "react"
+import { ArrowRight, Check } from "lucide-react"
+
+const services = [
+  {
+    title: "Audit and Assurance",
+    description:
+      "Independent assurance work that improves confidence in your reporting and compliance position.",
+    points: ["Risk and controls review", "Financial statement audit", "Compliance-aligned reporting"],
+  },
+  {
+    title: "Tax Compliance",
+    description:
+      "Clear and timely support for planning, filing, health checks, and tax authority engagements.",
+    points: ["Tax planning and filing", "Audit and objection support", "VAT and refund guidance"],
+  },
+  {
+    title: "Accounting Services",
+    description:
+      "Reliable bookkeeping and reporting that gives leadership the numbers needed for smart decisions.",
+    points: ["Bookkeeping support", "Periodic management reports", "Year-end close assistance"],
+  },
+  {
+    title: "Business Consulting",
+    description:
+      "Practical advisory that strengthens financial management, operations, and long-term growth.",
+    points: ["Process improvement", "Strategic planning support", "Performance advisory"],
+  },
+]
 
 export function Services() {
   const servicesRef = useRef<HTMLElement>(null)
@@ -13,12 +41,12 @@ export function Services() {
             entry.target.querySelectorAll(".reveal-child").forEach((el, index) => {
               setTimeout(() => {
                 el.classList.add("active")
-              }, index * 100)
+              }, index * 90)
             })
           }
         })
       },
-      { threshold: 0.1 },
+      { threshold: 0.12 },
     )
 
     if (servicesRef.current) {
@@ -29,130 +57,49 @@ export function Services() {
   }, [])
 
   return (
-    <section id="services" ref={servicesRef} className="py-16 md:py-24 px-6 relative z-10">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <span className="text-brand-500 font-bold uppercase tracking-widest text-xs mb-4 block">Our Services</span>
-          <h2 className="text-3xl md:text-5xl font-serif font-medium text-brand-900 mb-6">
-            Audit, Tax, Accounting, and Advisory Support
+    <section id="services" ref={servicesRef} className="relative z-10 px-5 py-14 md:px-6 md:py-24">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-10 text-center md:mb-14">
+          <span className="eyebrow-chip mb-4">What We Offer</span>
+          <h2 className="text-3xl font-extrabold tracking-tight text-brand-900 md:text-5xl">
+            Our <span className="gradient-text">Services</span>
           </h2>
-          <p className="text-brand-600 max-w-2xl mx-auto">
-            We provide professional services tailored to your compliance obligations and strategic priorities.
+          <p className="mx-auto mt-4 max-w-2xl text-sm text-slate-600 md:text-lg">
+            Professional services built to protect compliance, improve clarity, and support better decisions.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Service Card 1 */}
-          <div className="bg-white p-8 rounded-3xl shadow-sm border border-brand-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-400 group reveal-child opacity-0 translate-y-8">
-            <div className="w-14 h-14 bg-brand-900 rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg shadow-brand-900/20 group-hover:scale-110 transition-transform">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="1.5"
-                  d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
-                ></path>
-              </svg>
-            </div>
-            <h3 className="text-2xl font-serif text-brand-900 mb-3">Audit and Assurance</h3>
-            <p className="text-brand-600 leading-relaxed mb-6">
-              Ensure the accuracy and integrity of your financial statements through thorough, standards-aligned audit
-              and assurance services that identify risk and improve confidence.
-            </p>
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-2 text-brand-900 font-semibold text-sm group-hover:gap-3 transition-all"
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4">
+          {services.map((service) => (
+            <article
+              key={service.title}
+              className="reveal-child premium-card flex h-full translate-y-8 flex-col p-6 opacity-0 transition-all duration-700"
             >
-              Request a Consultation{" "}
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-              </svg>
-            </a>
-          </div>
+              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-500 to-cyan-500 text-white shadow-md">
+                <span className="h-2.5 w-2.5 rounded-full bg-white/80" />
+              </div>
 
-          {/* Service Card 2 */}
-          <div className="bg-white p-8 rounded-3xl shadow-sm border border-brand-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-400 group reveal-child opacity-0 translate-y-8">
-            <div className="w-14 h-14 bg-brand-900 rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg shadow-brand-900/20 group-hover:scale-110 transition-transform">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="1.5"
-                  d="M13 10V3L4 14h7v7l9-11h-7z"
-                ></path>
-              </svg>
-            </div>
-            <h3 className="text-2xl font-serif text-brand-900 mb-3">Accounting</h3>
-            <p className="text-brand-600 leading-relaxed mb-6">
-              Keep your records accurate and up to date with dependable accounting support and financial reporting that
-              helps leadership make informed decisions.
-            </p>
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-2 text-brand-900 font-semibold text-sm group-hover:gap-3 transition-all"
-            >
-              Request a Consultation{" "}
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-              </svg>
-            </a>
-          </div>
+              <h3 className="text-2xl font-bold leading-tight text-brand-900">{service.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-slate-600">{service.description}</p>
 
-          {/* Service Card 3 */}
-          <div className="bg-white p-8 rounded-3xl shadow-sm border border-brand-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-400 group reveal-child opacity-0 translate-y-8">
-            <div className="w-14 h-14 bg-brand-900 rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg shadow-brand-900/20 group-hover:scale-110 transition-transform">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="1.5"
-                  d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
-                ></path>
-              </svg>
-            </div>
-            <h3 className="text-2xl font-serif text-brand-900 mb-3">Tax Compliance</h3>
-            <p className="text-brand-600 leading-relaxed mb-6">
-              Get practical support in tax planning, filing, health checks, audits, and VAT refund applications to
-              reduce risk and improve tax efficiency.
-            </p>
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-2 text-brand-900 font-semibold text-sm group-hover:gap-3 transition-all"
-            >
-              Request a Consultation{" "}
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-              </svg>
-            </a>
-          </div>
+              <ul className="mt-5 space-y-2.5 border-t border-brand-100 pt-5 text-sm text-slate-700">
+                {service.points.map((point) => (
+                  <li key={point} className="flex items-center gap-2.5">
+                    <Check className="h-4 w-4 text-cyan-500" strokeWidth={2.5} />
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
 
-          {/* Service Card 4 */}
-          <div className="bg-white p-8 rounded-3xl shadow-sm border border-brand-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-400 group reveal-child opacity-0 translate-y-8">
-            <div className="w-14 h-14 bg-brand-900 rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg shadow-brand-900/20 group-hover:scale-110 transition-transform">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="1.5"
-                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                ></path>
-              </svg>
-            </div>
-            <h3 className="text-2xl font-serif text-brand-900 mb-3">Business Consulting</h3>
-            <p className="text-brand-600 leading-relaxed mb-6">
-              Improve financial management and business performance with advisory input on operational efficiency,
-              strategic planning, and growth-focused decisions.
-            </p>
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-2 text-brand-900 font-semibold text-sm group-hover:gap-3 transition-all"
-            >
-              Request a Consultation{" "}
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-              </svg>
-            </a>
-          </div>
+              <a
+                href="#contact"
+                className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-brand-500 transition-all hover:gap-3"
+              >
+                Learn More
+                <ArrowRight className="h-4 w-4" />
+              </a>
+            </article>
+          ))}
         </div>
       </div>
     </section>

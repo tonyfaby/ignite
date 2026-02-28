@@ -3,6 +3,12 @@
 import Image from "next/image"
 import { useEffect, useRef } from "react"
 
+const highlights = [
+  { title: "Audit and Assurance", detail: "Statutory and compliance-ready reports" },
+  { title: "Tax and Accounting", detail: "Practical support for filings and records" },
+  { title: "Business Advisory", detail: "Growth-focused financial guidance" },
+]
+
 export function Hero() {
   const heroRef = useRef<HTMLElement>(null)
 
@@ -19,7 +25,7 @@ export function Hero() {
           }
         })
       },
-      { threshold: 0.1 },
+      { threshold: 0.08 },
     )
 
     if (heroRef.current) {
@@ -30,57 +36,78 @@ export function Hero() {
   }, [])
 
   return (
-    <section ref={heroRef} className="relative z-10 pt-32 pb-16 md:pt-40 md:pb-24 px-6">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left Content */}
-          <div className="text-center lg:text-left">
-            <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white border border-brand-200 mb-8 reveal opacity-0 translate-y-8 transition-all duration-800 ease-out shadow-none">
-              <span className="flex h-2 w-2 relative">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-              </span>
-              <span className="text-xs font-semibold tracking-wide uppercase text-brand-600">
-                Registered Professional Firm in Tanzania
-              </span>
-            </div>
+    <section ref={heroRef} className="relative z-10 px-5 pb-14 pt-32 md:px-6 md:pb-20 md:pt-40 lg:pb-24">
+      <div className="mx-auto max-w-7xl">
+        <div className="grid items-center gap-8 lg:grid-cols-[1.02fr_1fr] lg:gap-12">
+          <div>
+            <span className="eyebrow-chip reveal opacity-0 translate-y-8 transition-all duration-700">
+              Premium Financial Care
+            </span>
 
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-medium text-brand-900 leading-[1.1] mb-6 text-balance reveal opacity-0 translate-y-8 transition-all duration-800 ease-out">
-              Premier <i className="font-serif text-brand-500">Audit, Tax, and Accounting</i> Services
+            <h1 className="reveal mt-5 text-4xl font-extrabold leading-[1.05] tracking-tight text-brand-900 opacity-0 translate-y-8 transition-all duration-700 sm:text-5xl md:text-6xl">
+              Transform Your
+              <span className="block gradient-text">Business Performance</span>
             </h1>
 
-            <p className="text-base md:text-lg text-brand-600 max-w-xl mx-auto lg:mx-0 mb-10 leading-relaxed reveal opacity-0 translate-y-8 transition-all duration-800 ease-out">
-              Ignite Associates supports businesses, government institutions, and non-government organizations with
-              audit and assurance, accounting, tax compliance, and practical business consulting.
+            <p className="reveal mt-5 max-w-xl text-base leading-relaxed text-slate-600 opacity-0 translate-y-8 transition-all duration-700 md:text-xl">
+              Ignite Associates delivers audit, tax, accounting, and advisory services that help organizations across
+              Tanzania operate with confidence.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center lg:items-start lg:justify-start justify-center gap-4 reveal opacity-0 translate-y-8 transition-all duration-800 ease-out">
+            <div className="reveal mt-8 flex flex-col gap-3 opacity-0 translate-y-8 transition-all duration-700 sm:flex-row">
               <a
                 href="#contact"
-                className="w-full sm:w-auto text-center px-8 py-4 rounded-full bg-brand-900 text-white font-medium transition-all hover:bg-black shadow-xl shadow-brand-900/10"
+                className="inline-flex items-center justify-center rounded-full bg-brand-500 px-8 py-3.5 text-base font-bold text-white shadow-[0_10px_22px_rgba(30,110,242,0.35)] transition-all hover:bg-brand-600"
               >
-                Book a Consultation
+                Book Consultation
               </a>
               <a
                 href="#services"
-                className="w-full sm:w-auto text-center px-8 py-4 rounded-full bg-white border border-brand-200 text-brand-900 font-medium transition-all hover:border-brand-300 hover:bg-brand-50"
+                className="inline-flex items-center justify-center rounded-full border border-brand-200 bg-white px-8 py-3.5 text-base font-bold text-brand-900 shadow-sm transition-all hover:border-brand-300"
               >
-                Explore Services
+                View Services
               </a>
+            </div>
+
+            <div className="reveal mt-8 grid gap-3 opacity-0 translate-y-8 transition-all duration-700 sm:grid-cols-3">
+              {highlights.map((item) => (
+                <div key={item.title} className="premium-card p-4">
+                  <p className="text-sm font-extrabold text-brand-500">{item.title}</p>
+                  <p className="mt-1 text-xs leading-relaxed text-slate-600">{item.detail}</p>
+                </div>
+              ))}
             </div>
           </div>
 
-          {/* Right Image */}
-          <div className="relative reveal opacity-0 translate-y-8 transition-all duration-800 ease-out lg:order-last order-first">
-            <div className="aspect-[4/5] lg:aspect-[3/4] rounded-xl bg-brand-100 overflow-hidden shadow-2xl">
-              <Image
-                src="/images/hero-portrait.jpg"
-                alt="Ignite Associates professionals discussing financial strategy"
-                fill
-                priority
-                className="object-cover hover:scale-105 transition-transform duration-700 border-[0] rounded-2xl"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
+          <div className="reveal relative order-first opacity-0 translate-y-8 transition-all duration-700 lg:order-last">
+            <div className="relative overflow-hidden rounded-[1.75rem] border border-white/80 bg-white p-2 shadow-[0_20px_45px_rgba(10,30,70,0.14)]">
+              <div className="relative aspect-[5/6] overflow-hidden rounded-[1.3rem] bg-brand-100">
+                <Image
+                  src="/images/hero-portrait.jpg"
+                  alt="Ignite Associates professionals"
+                  fill
+                  priority
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-900/35 via-transparent to-transparent" />
+              </div>
+            </div>
+
+            <div className="absolute right-3 top-6 rounded-2xl border border-white/90 bg-white px-4 py-3 shadow-xl md:right-5 md:top-7">
+              <p className="text-lg font-extrabold text-brand-900">4.9</p>
+              <p className="text-xs font-medium text-slate-500">Client Satisfaction</p>
+            </div>
+
+            <div className="absolute -bottom-4 left-4 rounded-2xl border border-white/90 bg-white px-4 py-3 shadow-xl md:left-8">
+              <p className="text-sm font-bold text-brand-900">Trusted Advisory</p>
+              <p className="text-xs text-slate-500">Across Tanzania</p>
+            </div>
+
+            <div className="absolute -bottom-6 right-3 grid grid-cols-4 gap-1.5 md:right-6">
+              {Array.from({ length: 16 }).map((_, index) => (
+                <span key={index} className="h-1.5 w-1.5 rounded-full bg-brand-500/55 md:h-2 md:w-2" />
+              ))}
             </div>
           </div>
         </div>

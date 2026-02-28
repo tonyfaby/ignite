@@ -1,6 +1,40 @@
 "use client"
 
 import { useEffect, useRef } from "react"
+import { ShieldCheck, Lock, BriefcaseBusiness, Scale, GraduationCap, Sparkles } from "lucide-react"
+
+const benefits = [
+  {
+    icon: ShieldCheck,
+    title: "Integrity",
+    description: "We uphold high ethical standards in every engagement to maintain trust and transparency.",
+  },
+  {
+    icon: Lock,
+    title: "Confidentiality",
+    description: "Client information is protected with strict confidentiality and professional care.",
+  },
+  {
+    icon: BriefcaseBusiness,
+    title: "Professionalism",
+    description: "Our team delivers reliable, high-quality work grounded in technical expertise.",
+  },
+  {
+    icon: Scale,
+    title: "Objectivity",
+    description: "We provide impartial guidance and independent assessments based on evidence.",
+  },
+  {
+    icon: GraduationCap,
+    title: "Competence",
+    description: "Our specialists continuously sharpen their skills to provide effective service.",
+  },
+  {
+    icon: Sparkles,
+    title: "Value-Adding Service",
+    description: "Every engagement is designed to solve practical needs and support long-term performance.",
+  },
+]
 
 export function Benefits() {
   const benefitsRef = useRef<HTMLElement>(null)
@@ -13,12 +47,12 @@ export function Benefits() {
             entry.target.querySelectorAll(".reveal-child").forEach((el, index) => {
               setTimeout(() => {
                 el.classList.add("active")
-              }, index * 100)
+              }, index * 90)
             })
           }
         })
       },
-      { threshold: 0.1 },
+      { threshold: 0.12 },
     )
 
     if (benefitsRef.current) {
@@ -28,113 +62,36 @@ export function Benefits() {
     return () => observer.disconnect()
   }, [])
 
-  const benefits = [
-    {
-      icon: (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="1.5"
-            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-          ></path>
-        </svg>
-      ),
-      title: "Integrity",
-      description: "We uphold high ethical standards in every engagement to maintain trust and transparency.",
-    },
-    {
-      icon: (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-        </svg>
-      ),
-      title: "Confidentiality",
-      description: "Client information is protected with strict confidentiality and professional care.",
-    },
-    {
-      icon: (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="1.5"
-            d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-          ></path>
-        </svg>
-      ),
-      title: "Professionalism",
-      description: "Our team delivers reliable, high-quality work grounded in technical expertise.",
-    },
-    {
-      icon: (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="1.5"
-            d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
-          ></path>
-        </svg>
-      ),
-      title: "Objectivity",
-      description: "We provide impartial guidance and independent assessments based on evidence.",
-    },
-    {
-      icon: (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="1.5"
-            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-          ></path>
-        </svg>
-      ),
-      title: "Competence",
-      description: "Our specialists continuously sharpen their skills to provide up-to-date, effective service.",
-    },
-    {
-      icon: (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="1.5"
-            d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
-          ></path>
-        </svg>
-      ),
-      title: "Value-Adding Service",
-      description: "Every engagement is designed to solve practical needs and strengthen long-term performance.",
-    },
-  ]
-
   return (
-    <section id="values" ref={benefitsRef} className="py-16 md:py-24 px-6 relative z-10 bg-white">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <span className="text-brand-500 font-bold uppercase tracking-widest text-xs mb-4 block">Why Choose Us</span>
-          <h2 className="text-3xl md:text-5xl font-serif font-medium text-brand-900 mb-4">Our Core Values</h2>
-          <p className="text-brand-600 max-w-2xl mx-auto">
-            Our vision is to be a one-stop center for accounting, audit, and tax services, delivered with measurable
-            value.
+    <section id="values" ref={benefitsRef} className="relative z-10 px-5 py-14 md:px-6 md:py-24">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-10 text-center md:mb-14">
+          <span className="eyebrow-chip mb-4">Why Ignite</span>
+          <h2 className="text-3xl font-extrabold tracking-tight text-brand-900 md:text-5xl">
+            Core <span className="gradient-text">Values</span>
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-sm text-slate-600 md:text-lg">
+            We are committed to quality work, practical guidance, and measurable client value.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {benefits.map((benefit, index) => (
-            <div
-              key={index}
-              className="p-8 bg-brand-50 rounded-2xl border border-brand-100 hover:bg-white hover:shadow-lg hover:-translate-y-1 transition-all duration-400 reveal-child opacity-0 translate-y-8"
-            >
-              <div className="w-12 h-12 bg-brand-900 rounded-xl flex items-center justify-center text-white mb-6">
-                {benefit.icon}
-              </div>
-              <h3 className="text-xl font-serif font-bold text-brand-900 mb-3">{benefit.title}</h3>
-              <p className="text-brand-600 text-sm leading-relaxed">{benefit.description}</p>
-            </div>
-          ))}
+        <div className="grid gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-3">
+          {benefits.map((benefit) => {
+            const Icon = benefit.icon
+
+            return (
+              <article
+                key={benefit.title}
+                className="reveal-child premium-card translate-y-8 p-6 opacity-0 transition-all duration-700 md:p-7"
+              >
+                <span className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-500 to-cyan-500 text-white">
+                  <Icon className="h-5 w-5" strokeWidth={2.2} />
+                </span>
+                <h3 className="text-2xl font-extrabold leading-tight text-brand-900">{benefit.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-slate-600">{benefit.description}</p>
+              </article>
+            )
+          })}
         </div>
       </div>
     </section>

@@ -13,11 +13,10 @@ const ContactCTA = dynamic(() => import("@/components/contact-cta").then((mod) =
 
 export default function Home() {
   return (
-    <main className="bg-brand-50 text-brand-900 font-sans selection:bg-brand-900 selection:text-white overflow-x-hidden antialiased">
-      {/* Subtle Background Mesh */}
-      <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-[10%] -left-[10%] w-[50%] h-[50%] bg-brand-200/30 rounded-full mix-blend-multiply filter blur-[120px] animate-blob"></div>
-        <div className="absolute top-[20%] -right-[10%] w-[40%] h-[40%] bg-blue-100/40 rounded-full mix-blend-multiply filter blur-[120px] animate-blob [animation-delay:2s]"></div>
+    <main className="relative overflow-x-hidden bg-brand-50 text-brand-900 font-sans antialiased selection:bg-brand-500 selection:text-white">
+      <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+        <div className="absolute -left-28 -top-20 h-[34rem] w-[34rem] rounded-full bg-brand-200/45 blur-[120px]"></div>
+        <div className="absolute -right-24 top-[28rem] h-[30rem] w-[30rem] rounded-full bg-cyan-200/35 blur-[120px]"></div>
       </div>
 
       <Navigation />

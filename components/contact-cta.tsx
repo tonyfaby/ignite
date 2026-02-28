@@ -1,152 +1,173 @@
 "use client"
 
-import Image from "next/image"
 import { useState, type FormEvent } from "react"
+import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react"
 
 export function ContactCTA() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [message, setMessage] = useState("")
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsSubmitting(true)
     setMessage("")
 
-    // Simulate API call
     setTimeout(() => {
       setIsSubmitting(false)
       setMessage("Thanks. Your request has been received and our team will contact you shortly.")
       ;(e.target as HTMLFormElement).reset()
 
-      setTimeout(() => {
-        setMessage("")
-      }, 5000)
-    }, 1500)
+      setTimeout(() => setMessage(""), 4500)
+    }, 1400)
   }
 
   return (
-    <section id="contact" className="py-16 md:py-24 px-6 relative z-10">
-      <div className="max-w-7xl mx-auto">
-        <div className="bg-brand-900 rounded-xl overflow-hidden shadow-2xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
-            {/* Left Content */}
-            <div className="p-8 md:p-16 relative">
-              <div className="absolute top-0 right-0 w-96 h-96 bg-brand-800 rounded-full mix-blend-screen opacity-20 -mr-20 -mt-20 blur-3xl"></div>
+    <section id="contact" className="relative z-10 px-5 py-14 md:px-6 md:py-24">
+      <div className="mx-auto max-w-7xl overflow-hidden rounded-[1.75rem] border border-white/80 bg-white shadow-[0_18px_42px_rgba(10,32,72,0.12)]">
+        <div className="grid lg:grid-cols-[0.95fr_1.2fr]">
+          <div className="bg-gradient-to-br from-[#081a3f] via-[#081733] to-[#050e1f] px-6 py-10 text-white md:px-10 md:py-12">
+            <h2 className="text-3xl font-extrabold leading-tight md:text-5xl">Ready to Strengthen Your Financial Position?</h2>
+            <p className="mt-5 max-w-md text-sm leading-relaxed text-blue-100/90 md:text-lg">
+              Schedule a consultation with Ignite Associates and get a practical path for compliance, reporting, and
+              performance improvement.
+            </p>
 
-              <div className="relative z-10">
-                <h2 className="text-3xl md:text-5xl font-serif font-medium text-white mb-4">Get in Touch</h2>
-                <p className="text-lg text-brand-200 mb-8 max-w-md">
-                  Reach Ignite Associates for audit, tax, accounting, and advisory support tailored to your
-                  organization.
-                </p>
-
-                <div className="grid gap-3 mb-10 text-brand-100 text-sm">
-                  <p>
-                    <span className="font-semibold text-white">Email:</span>{" "}
-                    <a href="mailto:info@ignite.co.tz" className="underline underline-offset-2 hover:text-white">
-                      info@ignite.co.tz
-                    </a>
-                  </p>
-                  <p>
-                    <span className="font-semibold text-white">Phone:</span>{" "}
-                    <a href="tel:+255717650065" className="underline underline-offset-2 hover:text-white">
-                      +255 717 650 065
-                    </a>{" "}
-                    /{" "}
-                    <a href="tel:+255718129114" className="underline underline-offset-2 hover:text-white">
-                      +255 718 129 114
-                    </a>
-                  </p>
-                  <p>
-                    <span className="font-semibold text-white">Office:</span> Victoria Green Acres House, Ground Floor
-                  </p>
+            <div className="mt-8 space-y-5 md:mt-10">
+              <div className="flex items-start gap-3.5">
+                <span className="mt-0.5 flex h-10 w-10 items-center justify-center rounded-full bg-brand-500/90">
+                  <Phone className="h-4.5 w-4.5" />
+                </span>
+                <div>
+                  <p className="text-sm text-blue-100/70">Call Us</p>
+                  <a href="tel:+255717650065" className="text-lg font-bold leading-tight hover:text-cyan-200">
+                    +255 717 650 065
+                  </a>
                 </div>
+              </div>
 
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div>
-                    <input
-                      type="text"
-                      required
-                      placeholder="Full Name"
-                      className="w-full px-6 py-4 rounded-full bg-white/10 border border-white/20 text-white focus:outline-none focus:border-white focus:bg-white/20 transition-colors placeholder:text-brand-400 backdrop-blur-sm"
-                    />
-                  </div>
-                  <div>
-                    <input
-                      type="text"
-                      required
-                      placeholder="Organization Name"
-                      className="w-full px-6 py-4 rounded-full bg-white/10 border border-white/20 text-white focus:outline-none focus:border-white focus:bg-white/20 transition-colors placeholder:text-brand-400 backdrop-blur-sm"
-                    />
-                  </div>
-                  <div>
-                    <input
-                      type="email"
-                      required
-                      placeholder="Email Address"
-                      className="w-full px-6 py-4 rounded-full bg-white/10 border border-white/20 text-white focus:outline-none focus:border-white focus:bg-white/20 transition-colors placeholder:text-brand-400 backdrop-blur-sm"
-                    />
-                  </div>
-                  <div>
-                    <input
-                      type="tel"
-                      placeholder="Phone Number"
-                      className="w-full px-6 py-4 rounded-full bg-white/10 border border-white/20 text-white focus:outline-none focus:border-white focus:bg-white/20 transition-colors placeholder:text-brand-400 backdrop-blur-sm"
-                    />
-                  </div>
-                  <div>
-                    <input
-                      type="text"
-                      placeholder="Service Needed (e.g., Audit, Tax, Accounting, Consulting)"
-                      className="w-full px-6 py-4 rounded-full bg-white/10 border border-white/20 text-white focus:outline-none focus:border-white focus:bg-white/20 transition-colors placeholder:text-brand-400 backdrop-blur-sm"
-                    />
-                  </div>
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full px-6 py-4 rounded-full bg-white text-brand-900 font-bold text-lg hover:bg-brand-100 transition-colors shadow-lg flex items-center justify-center disabled:opacity-70 disabled:cursor-not-allowed"
-                  >
-                    <span>{isSubmitting ? "Sending request..." : "Request Consultation"}</span>
-                    {isSubmitting && (
-                      <svg
-                        className="w-5 h-5 ml-2 animate-spin"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                      >
-                        <circle
-                          className="opacity-25"
-                          cx="12"
-                          cy="12"
-                          r="10"
-                          stroke="currentColor"
-                          strokeWidth="4"
-                        ></circle>
-                        <path
-                          className="opacity-75"
-                          fill="currentColor"
-                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                        ></path>
-                      </svg>
-                    )}
-                  </button>
-                  {message && <p className="text-sm text-center font-medium text-green-400 mt-2">{message}</p>}
-                </form>
+              <div className="flex items-start gap-3.5">
+                <span className="mt-0.5 flex h-10 w-10 items-center justify-center rounded-full bg-brand-500/90">
+                  <Mail className="h-4.5 w-4.5" />
+                </span>
+                <div>
+                  <p className="text-sm text-blue-100/70">Email Us</p>
+                  <a href="mailto:info@ignite.co.tz" className="text-lg font-bold leading-tight hover:text-cyan-200">
+                    info@ignite.co.tz
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3.5">
+                <span className="mt-0.5 flex h-10 w-10 items-center justify-center rounded-full bg-brand-500/90">
+                  <MapPin className="h-4.5 w-4.5" />
+                </span>
+                <div>
+                  <p className="text-sm text-blue-100/70">Visit Us</p>
+                  <p className="text-lg font-bold leading-tight text-white">Victoria Green Acres House, Ground Floor</p>
+                </div>
               </div>
             </div>
 
-            {/* Right Image */}
-            <div className="relative hidden lg:block">
-              <Image
-                src="/images/contact-portrait.jpg"
-                alt="Ignite Associates consultant"
-                fill
-                loading="lazy"
-                className="object-cover"
-                sizes="50vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-brand-900 to-transparent"></div>
+            <div className="mt-8 flex items-center gap-3 md:mt-10">
+              <a
+                href="https://www.instagram.com"
+                target="_blank"
+                rel="noreferrer"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white/20"
+                aria-label="Instagram"
+              >
+                <Instagram className="h-4.5 w-4.5" />
+              </a>
+              <a
+                href="https://www.facebook.com"
+                target="_blank"
+                rel="noreferrer"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white/20"
+                aria-label="Facebook"
+              >
+                <Facebook className="h-4.5 w-4.5" />
+              </a>
+              <a
+                href="https://www.linkedin.com"
+                target="_blank"
+                rel="noreferrer"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white/20"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="h-4.5 w-4.5" />
+              </a>
             </div>
+          </div>
+
+          <div className="bg-[#f6f8fc] px-6 py-8 md:px-10 md:py-12">
+            <form onSubmit={handleSubmit} className="space-y-2">
+              <div className="border-b border-slate-300 pb-2.5">
+                <input
+                  type="text"
+                  required
+                  placeholder="Your Name"
+                  className="w-full bg-transparent text-sm text-slate-800 outline-none placeholder:text-slate-500 md:text-base"
+                />
+              </div>
+              <div className="border-b border-slate-300 pb-2.5 pt-3">
+                <input
+                  type="email"
+                  required
+                  placeholder="Email Address"
+                  className="w-full bg-transparent text-sm text-slate-800 outline-none placeholder:text-slate-500 md:text-base"
+                />
+              </div>
+              <div className="border-b border-slate-300 pb-2.5 pt-3">
+                <input
+                  type="tel"
+                  placeholder="Phone Number"
+                  className="w-full bg-transparent text-sm text-slate-800 outline-none placeholder:text-slate-500 md:text-base"
+                />
+              </div>
+              <div className="border-b border-slate-300 pb-2.5 pt-3">
+                <input
+                  type="text"
+                  required
+                  placeholder="Organization Name"
+                  className="w-full bg-transparent text-sm text-slate-800 outline-none placeholder:text-slate-500 md:text-base"
+                />
+              </div>
+              <div className="border-b border-slate-300 pb-2.5 pt-3">
+                <select
+                  required
+                  defaultValue=""
+                  className="w-full bg-transparent text-sm text-slate-700 outline-none md:text-base"
+                >
+                  <option value="" disabled>
+                    Select Service
+                  </option>
+                  <option>Audit and Assurance</option>
+                  <option>Tax Compliance</option>
+                  <option>Accounting Services</option>
+                  <option>Business Consulting</option>
+                </select>
+              </div>
+              <div className="border-b border-slate-300 pb-2.5 pt-3">
+                <textarea
+                  rows={3}
+                  placeholder="Additional details or request"
+                  className="w-full resize-none bg-transparent text-sm text-slate-800 outline-none placeholder:text-slate-500 md:text-base"
+                />
+              </div>
+
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-brand-500 px-6 py-3.5 text-sm font-bold uppercase tracking-[0.06em] text-white shadow-[0_10px_20px_rgba(30,110,242,0.35)] transition-all hover:bg-brand-600 disabled:cursor-not-allowed disabled:opacity-70 md:text-base"
+              >
+                {isSubmitting ? "Sending Request..." : "Schedule Consultation"}
+              </button>
+
+              <p className="pt-3 text-xs leading-relaxed text-slate-500 md:text-sm">
+                By submitting this form, you agree to our privacy and data handling policy.
+              </p>
+              {message && <p className="text-sm font-semibold text-green-600">{message}</p>}
+            </form>
           </div>
         </div>
       </div>

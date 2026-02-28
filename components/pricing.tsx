@@ -1,6 +1,48 @@
 "use client"
 
 import { useEffect, useRef } from "react"
+import { ArrowRight, Check } from "lucide-react"
+
+const packages = [
+  {
+    name: "Audit and Assurance",
+    subtitle: "For annual statutory and donor reporting requirements",
+    label: "Scope-Based",
+    features: [
+      "Planning and risk assessment",
+      "Financial statement review",
+      "Independent assurance report",
+      "Management recommendations",
+    ],
+    cta: "Request Package",
+  },
+  {
+    name: "Tax and Accounting Retainer",
+    subtitle: "For ongoing compliance and reporting support",
+    label: "Monthly / Quarterly",
+    features: [
+      "Tax filing and compliance management",
+      "Accounting and reporting support",
+      "Tax health checks",
+      "Priority access to advisory team",
+      "Regulatory updates and guidance",
+    ],
+    cta: "Request Package",
+    featured: true,
+  },
+  {
+    name: "Business Consulting",
+    subtitle: "For strategic or project-based advisory assignments",
+    label: "Custom Quote",
+    features: [
+      "Financial process improvement",
+      "Planning and execution support",
+      "Performance and risk review",
+      "Decision support for leadership",
+    ],
+    cta: "Request Package",
+  },
+]
 
 export function Pricing() {
   const pricingRef = useRef<HTMLElement>(null)
@@ -29,124 +71,65 @@ export function Pricing() {
   }, [])
 
   return (
-    <section id="pricing" ref={pricingRef} className="py-16 md:py-24 px-6 relative z-10">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-serif font-medium text-brand-900 mb-6">Engagement Models</h2>
-          <p className="text-brand-600">
-            Flexible ways to work with Ignite Associates based on your scope, complexity, and reporting timeline.
+    <section id="pricing" ref={pricingRef} className="relative z-10 px-5 py-14 md:px-6 md:py-24">
+      <div className="mx-auto max-w-7xl">
+        <div className="text-center">
+          <span className="eyebrow-chip mb-4">Engagement Models</span>
+          <h2 className="text-3xl font-extrabold tracking-tight text-brand-900 md:text-5xl">
+            Transparent <span className="gradient-text">Engagement</span>
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-sm text-slate-600 md:text-lg">
+            Choose the support model that fits your reporting cycle, internal capacity, and advisory needs.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Card 1 */}
-          <div className="bg-white p-8 rounded-3xl flex flex-col reveal-child opacity-0 translate-y-8 transition-all duration-600 border border-brand-200 hover:border-brand-400 hover:shadow-xl">
-            <h3 className="text-xl font-serif font-bold text-brand-900 mb-2">Annual Audit and Assurance</h3>
-            <p className="text-brand-500 text-sm mb-6">For organizations with annual statutory reporting needs.</p>
-            <div className="text-2xl font-serif text-brand-900 mb-6">Scope-Based Engagement</div>
-            <ul className="space-y-4 mb-8 flex-1">
-              <li className="flex items-center gap-3 text-sm text-brand-600">
-                <svg className="w-5 h-5 text-brand-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                </svg>{" "}
-                Risk and controls review
-              </li>
-              <li className="flex items-center gap-3 text-sm text-brand-600">
-                <svg className="w-5 h-5 text-brand-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                </svg>{" "}
-                Financial statement assurance
-              </li>
-              <li className="flex items-center gap-3 text-sm text-brand-600">
-                <svg className="w-5 h-5 text-brand-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                </svg>{" "}
-                Compliance-ready reporting
-              </li>
-            </ul>
-            <a
-              href="#contact"
-              className="w-full py-3 rounded-full border border-brand-200 text-brand-900 font-bold hover:bg-brand-50 text-center transition-colors"
+        <div className="mt-8 grid gap-4 md:mt-12 md:grid-cols-3 md:gap-6">
+          {packages.map((pkg) => (
+            <article
+              key={pkg.name}
+              className={`reveal-child translate-y-8 rounded-3xl p-6 opacity-0 transition-all duration-700 md:p-8 ${
+                pkg.featured
+                  ? "border-2 border-brand-500 bg-white shadow-[0_14px_30px_rgba(30,110,242,0.15)]"
+                  : "border border-brand-200 bg-white/92 shadow-[0_10px_24px_rgba(8,20,48,0.08)]"
+              }`}
             >
-              Discuss Scope
-            </a>
-          </div>
+              <h3 className="text-2xl font-extrabold leading-tight text-brand-900">{pkg.name}</h3>
+              <p className="mt-2 text-sm text-slate-600">{pkg.subtitle}</p>
 
-          {/* Card 2 (Popular) */}
-          <div className="bg-brand-900 p-8 rounded-3xl flex flex-col relative reveal-child opacity-0 translate-y-8 transition-all duration-600 shadow-2xl text-white transform md:-translate-y-4">
-            <div className="absolute top-0 right-0 mt-6 mr-6 px-3 py-1 bg-white text-brand-900 text-xs font-bold uppercase tracking-wide rounded-full">
-              Popular
-            </div>
-            <h3 className="text-xl font-serif font-bold mb-2">Tax and Accounting Retainer</h3>
-            <p className="text-brand-300 text-sm mb-6">For teams requiring ongoing financial compliance support.</p>
-            <div className="text-2xl font-serif mb-6">Monthly or Quarterly Support</div>
-            <ul className="space-y-4 mb-8 flex-1">
-              <li className="flex items-center gap-3 text-sm text-brand-100">
-                <svg className="w-5 h-5 text-brand-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                </svg>{" "}
-                Tax planning and return filing
-              </li>
-              <li className="flex items-center gap-3 text-sm text-brand-100">
-                <svg className="w-5 h-5 text-brand-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                </svg>{" "}
-                Accounting and reporting support
-              </li>
-              <li className="flex items-center gap-3 text-sm text-brand-100">
-                <svg className="w-5 h-5 text-brand-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                </svg>{" "}
-                Tax health checks and risk review
-              </li>
-              <li className="flex items-center gap-3 text-sm text-brand-100">
-                <svg className="w-5 h-5 text-brand-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                </svg>{" "}
-                Priority advisory access
-              </li>
-            </ul>
-            <a
-              href="#contact"
-              className="w-full py-3 rounded-full bg-white text-brand-900 font-bold hover:bg-brand-100 text-center transition-colors"
-            >
-              Discuss Scope
-            </a>
-          </div>
+              <p className="mt-5 text-sm font-bold uppercase tracking-[0.14em] text-brand-500">{pkg.label}</p>
 
-          {/* Card 3 */}
-          <div className="bg-white p-8 rounded-3xl flex flex-col reveal-child opacity-0 translate-y-8 transition-all duration-600 border border-brand-200 hover:border-brand-400 hover:shadow-xl">
-            <h3 className="text-xl font-serif font-bold text-brand-900 mb-2">Business Consulting Projects</h3>
-            <p className="text-brand-500 text-sm mb-6">For specific transformation, strategy, or special assignments.</p>
-            <div className="text-2xl font-serif text-brand-900 mb-6">Custom Engagement</div>
-            <ul className="space-y-4 mb-8 flex-1">
-              <li className="flex items-center gap-3 text-sm text-brand-600">
-                <svg className="w-5 h-5 text-brand-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                </svg>{" "}
-                Financial management advisory
-              </li>
-              <li className="flex items-center gap-3 text-sm text-brand-600">
-                <svg className="w-5 h-5 text-brand-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                </svg>{" "}
-                Process and controls improvement
-              </li>
-              <li className="flex items-center gap-3 text-sm text-brand-600">
-                <svg className="w-5 h-5 text-brand-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                </svg>{" "}
-                Strategic planning support
-              </li>
-            </ul>
-            <a
-              href="#contact"
-              className="w-full py-3 rounded-full border border-brand-200 text-brand-900 font-bold hover:bg-brand-50 text-center transition-colors"
-            >
-              Discuss Scope
-            </a>
-          </div>
+              <ul className="mt-5 space-y-3 text-sm text-slate-700">
+                {pkg.features.map((feature) => (
+                  <li key={feature} className="flex items-start gap-2.5">
+                    <span className="mt-[2px] flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-cyan-50 text-cyan-600">
+                      <Check className="h-3.5 w-3.5" strokeWidth={2.7} />
+                    </span>
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <a
+                href="#contact"
+                className={`mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-bold transition-all ${
+                  pkg.featured
+                    ? "bg-gradient-to-r from-brand-500 to-cyan-500 text-white shadow-[0_10px_20px_rgba(30,110,242,0.35)]"
+                    : "bg-brand-900 text-white hover:bg-brand-950"
+                }`}
+              >
+                {pkg.cta}
+                <ArrowRight className="h-4 w-4" />
+              </a>
+            </article>
+          ))}
         </div>
+
+        <p className="mt-8 text-center text-sm text-slate-600 md:text-base">
+          Need a tailored arrangement for your organization?
+          <a href="#contact" className="ml-2 font-bold text-brand-500 hover:text-brand-600">
+            Contact us for a custom quote
+          </a>
+        </p>
       </div>
     </section>
   )

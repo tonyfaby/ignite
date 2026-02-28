@@ -2,6 +2,34 @@
 
 import Image from "next/image"
 import { useEffect, useRef } from "react"
+import { ArrowRight } from "lucide-react"
+
+const steps = [
+  {
+    number: "01",
+    title: "Discovery and Risk Assessment",
+    description:
+      "We assess your operations, obligations, and reporting priorities to define the right engagement scope.",
+    image: "/images/process-analysis.jpg",
+    alt: "Discovery discussion",
+  },
+  {
+    number: "02",
+    title: "Execution and Compliance",
+    description:
+      "Our team executes the agreed scope under professional standards while maintaining clear communication.",
+    image: "/images/process-strategy.jpg",
+    alt: "Execution and planning",
+  },
+  {
+    number: "03",
+    title: "Reporting and Advisory",
+    description:
+      "You receive clear outputs and practical recommendations to support better compliance and business outcomes.",
+    image: "/images/process-collaboration.jpg",
+    alt: "Advisory collaboration",
+  },
+]
 
 export function Process() {
   const processRef = useRef<HTMLElement>(null)
@@ -14,7 +42,7 @@ export function Process() {
             entry.target.querySelectorAll(".reveal-child").forEach((el, index) => {
               setTimeout(() => {
                 el.classList.add("active")
-              }, index * 150)
+              }, index * 120)
             })
           }
         })
@@ -30,145 +58,46 @@ export function Process() {
   }, [])
 
   return (
-    <section id="process" ref={processRef} className="py-16 md:py-24 px-6 relative z-10">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <span className="text-brand-500 font-bold uppercase tracking-widest text-xs mb-4 block">Our Process</span>
-          <h2 className="text-3xl md:text-5xl font-serif font-medium text-brand-900 mb-4">
-            A Practical Approach Built Around Your Needs
+    <section id="process" ref={processRef} className="relative z-10 px-5 py-14 md:px-6 md:py-24">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-10 text-center md:mb-14">
+          <span className="eyebrow-chip mb-4">Our Approach</span>
+          <h2 className="text-3xl font-extrabold tracking-tight text-brand-900 md:text-5xl">
+            How We <span className="gradient-text">Work</span>
           </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-sm text-slate-600 md:text-lg">
+            A practical three-step process focused on clarity, compliance, and measurable outcomes.
+          </p>
         </div>
 
-        <div className="space-y-24">
-          {/* Process Step 1 - Image Left */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center reveal-child opacity-0 translate-y-8">
-            <div className="relative order-2 lg:order-1">
-              <div className="aspect-[4/3] rounded-xl overflow-hidden shadow-xl">
-                <Image
-                  src="/images/process-analysis.jpg"
-                  alt="Market Research"
-                  fill
-                  loading="lazy"
-                  className="object-cover hover:scale-105 transition-transform duration-700 rounded-2xl"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-              </div>
-            </div>
-            <div className="order-1 lg:order-2">
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 rounded-full bg-brand-900 text-white flex items-center justify-center font-serif font-bold text-xl">
-                  1
+        <div className="space-y-6 md:space-y-8">
+          {steps.map((step, index) => (
+            <article
+              key={step.number}
+              className="reveal-child grid translate-y-8 items-center gap-4 rounded-3xl border border-brand-200 bg-white/90 p-4 opacity-0 shadow-[0_12px_28px_rgba(10,30,70,0.08)] transition-all duration-700 md:gap-7 md:p-6 lg:grid-cols-[1fr_1.15fr]"
+            >
+              <div className={`relative ${index % 2 === 1 ? "lg:order-last" : ""}`}>
+                <div className="relative aspect-[16/11] overflow-hidden rounded-2xl">
+                  <Image src={step.image} alt={step.alt} fill loading="lazy" className="object-cover" sizes="50vw" />
                 </div>
-                <h3 className="text-2xl md:text-3xl font-serif font-medium text-brand-900">
-                  Discovery and Risk Assessment
-                </h3>
               </div>
-              <p className="text-brand-600 leading-relaxed mb-6">
-                We begin by understanding your operations, reporting obligations, and risk profile so our team can
-                scope the right audit, accounting, tax, or advisory engagement.
-              </p>
-              <a
-                href="#contact"
-                className="inline-flex items-center gap-2 text-brand-900 font-semibold border-b border-brand-900 pb-1 hover:gap-3 transition-all"
-              >
-                Talk to Our Team{" "}
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  ></path>
-                </svg>
-              </a>
-            </div>
-          </div>
 
-          {/* Process Step 2 - Image Right */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center reveal-child opacity-0 translate-y-8">
-            <div className="order-1">
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 rounded-full bg-brand-900 text-white flex items-center justify-center font-serif font-bold text-xl">
-                  2
-                </div>
-                <h3 className="text-2xl md:text-3xl font-serif font-medium text-brand-900">Execution and Compliance</h3>
+              <div>
+                <span className="inline-flex rounded-full bg-brand-100 px-3 py-1 text-xs font-bold tracking-[0.12em] text-brand-600">
+                  STEP {step.number}
+                </span>
+                <h3 className="mt-3 text-2xl font-extrabold leading-tight text-brand-900 md:text-3xl">{step.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-slate-600 md:text-base">{step.description}</p>
+                <a
+                  href="#contact"
+                  className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-brand-500 transition-all hover:gap-3"
+                >
+                  Talk to our team
+                  <ArrowRight className="h-4 w-4" />
+                </a>
               </div>
-              <p className="text-brand-600 leading-relaxed mb-6">
-                Our specialists execute the agreed scope using professional standards and regulatory requirements,
-                ensuring reliable outputs and clear communication at each milestone.
-              </p>
-              <a
-                href="#contact"
-                className="inline-flex items-center gap-2 text-brand-900 font-semibold border-b border-brand-900 pb-1 hover:gap-3 transition-all"
-              >
-                Talk to Our Team{" "}
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  ></path>
-                </svg>
-              </a>
-            </div>
-            <div className="relative order-2">
-              <div className="aspect-[4/3] rounded-xl overflow-hidden shadow-xl">
-                <Image
-                  src="/images/process-strategy.jpg"
-                  alt="Strategy Development"
-                  fill
-                  loading="lazy"
-                  className="object-cover hover:scale-105 transition-transform duration-700 rounded-2xl"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-              </div>
-            </div>
-          </div>
-
-          {/* Process Step 3 - Image Left */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center reveal-child opacity-0 translate-y-8">
-            <div className="relative order-2 lg:order-1">
-              <div className="aspect-[4/3] rounded-xl overflow-hidden shadow-xl">
-                <Image
-                  src="/images/process-collaboration.jpg"
-                  alt="Continuous Support"
-                  fill
-                  loading="lazy"
-                  className="object-cover hover:scale-105 transition-transform duration-700 rounded-2xl"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-              </div>
-            </div>
-            <div className="order-1 lg:order-2">
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 rounded-full bg-brand-900 text-white flex items-center justify-center font-serif font-bold text-xl">
-                  3
-                </div>
-                <h3 className="text-2xl md:text-3xl font-serif font-medium text-brand-900">
-                  Reporting and Ongoing Advisory
-                </h3>
-              </div>
-              <p className="text-brand-600 leading-relaxed mb-6">
-                We deliver clear reports, recommendations, and follow-up support so your organization can respond
-                confidently to compliance demands and long-term improvement opportunities.
-              </p>
-              <a
-                href="#contact"
-                className="inline-flex items-center gap-2 text-brand-900 font-semibold border-b border-brand-900 pb-1 hover:gap-3 transition-all"
-              >
-                Talk to Our Team{" "}
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  ></path>
-                </svg>
-              </a>
-            </div>
-          </div>
+            </article>
+          ))}
         </div>
       </div>
     </section>
