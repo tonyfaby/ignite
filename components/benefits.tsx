@@ -40,8 +40,8 @@ export function Benefits() {
           ></path>
         </svg>
       ),
-      title: "Data-Driven Insights",
-      description: "Every recommendation is backed by comprehensive market research and analytics.",
+      title: "Integrity",
+      description: "We uphold high ethical standards in every engagement to maintain trust and transparency.",
     },
     {
       icon: (
@@ -49,8 +49,8 @@ export function Benefits() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
         </svg>
       ),
-      title: "Rapid Implementation",
-      description: "We move fast without compromising quality, delivering results within weeks.",
+      title: "Confidentiality",
+      description: "Client information is protected with strict confidentiality and professional care.",
     },
     {
       icon: (
@@ -63,8 +63,8 @@ export function Benefits() {
           ></path>
         </svg>
       ),
-      title: "Dedicated Team",
-      description: "Work directly with senior consultants who understand your industry.",
+      title: "Professionalism",
+      description: "Our team delivers reliable, high-quality work grounded in technical expertise.",
     },
     {
       icon: (
@@ -77,8 +77,8 @@ export function Benefits() {
           ></path>
         </svg>
       ),
-      title: "Proven Track Record",
-      description: "150+ successful projects with measurable ROI improvements.",
+      title: "Objectivity",
+      description: "We provide impartial guidance and independent assessments based on evidence.",
     },
     {
       icon: (
@@ -91,8 +91,8 @@ export function Benefits() {
           ></path>
         </svg>
       ),
-      title: "24/7 Support",
-      description: "Round-the-clock availability for urgent consultations and crisis management.",
+      title: "Competence",
+      description: "Our specialists continuously sharpen their skills to provide up-to-date, effective service.",
     },
     {
       icon: (
@@ -105,19 +105,20 @@ export function Benefits() {
           ></path>
         </svg>
       ),
-      title: "Flexible Engagement",
-      description: "Month-to-month contracts with no long-term lock-in requirements.",
+      title: "Value-Adding Service",
+      description: "Every engagement is designed to solve practical needs and strengthen long-term performance.",
     },
   ]
 
   return (
-    <section ref={benefitsRef} className="py-16 md:py-24 px-6 relative z-10 bg-white">
+    <section id="values" ref={benefitsRef} className="py-16 md:py-24 px-6 relative z-10 bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <span className="text-brand-500 font-bold uppercase tracking-widest text-xs mb-4 block">Key Benefits</span>
-          <h2 className="text-3xl md:text-5xl font-serif font-medium text-brand-900 mb-4">Why Choose Ascendia</h2>
+          <span className="text-brand-500 font-bold uppercase tracking-widest text-xs mb-4 block">Why Choose Us</span>
+          <h2 className="text-3xl md:text-5xl font-serif font-medium text-brand-900 mb-4">Our Core Values</h2>
           <p className="text-brand-600 max-w-2xl mx-auto">
-            We combine strategic thinking with hands-on execution to deliver results that matter.
+            Our vision is to be a one-stop center for accounting, audit, and tax services, delivered with measurable
+            value.
           </p>
         </div>
 

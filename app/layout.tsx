@@ -16,17 +16,22 @@ const jakarta = Plus_Jakarta_Sans({
   display: "swap",
 })
 
+const iconsVersion = "20260301"
+
 export const metadata: Metadata = {
-  title: "Ascendia | Strategic Consulting & Growth",
+  metadataBase: new URL("https://ignite.co.tz"),
+  title: "Ignite Associates | Audit, Tax and Accounting Services",
   description:
-    "Ascendia provides data-driven strategic consulting for modern enterprises looking to scale, optimize operations, and navigate complex markets.",
-  keywords: "consulting, strategy, business growth, operational efficiency, digital transformation",
-  authors: [{ name: "Ascendia Consulting" }],
+    "Ignite Associates is a professional audit firm in Tanzania providing audit and assurance, accounting, tax compliance, and business consulting services.",
+  keywords:
+    "Ignite Associates, audit and assurance, accounting services, tax compliance, business consulting, Tanzania",
+  authors: [{ name: "Ignite Associates" }],
   openGraph: {
     type: "website",
-    url: "https://ascendia.demo",
-    title: "Ascendia | Strategic Clarity for Complex Markets",
-    description: "We partner with visionary leaders to navigate uncertainty and unlock sustainable growth.",
+    url: "https://ignite.co.tz",
+    title: "Ignite Associates | Premier Audit and Consulting Services in Tanzania",
+    description:
+      "Your trusted partner for audit and assurance, accounting, tax compliance, and strategic business consulting.",
     images: [
       {
         url: "/images/social-preview.jpg",
@@ -37,19 +42,22 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ascendia | Strategic Consulting",
-    description: "We partner with visionary leaders to navigate uncertainty and unlock sustainable growth.",
+    title: "Ignite Associates | Audit and Consulting",
+    description:
+      "Professional audit, accounting, tax compliance, and business consulting services tailored for Tanzanian organizations.",
     images: ["/images/social-preview.jpg"],
   },
   icons: {
     icon: [
-      {
-        url: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231C1917'/><text y='.9em' x='50' textAnchor='middle' fontFamily='serif' fontWeight='bold' fontSize='60' fill='white'>A</text></svg>",
-        type: "image/svg+xml",
-      },
+      { url: `/favicon.ico?v=${iconsVersion}` },
+      { url: `/favicon-32x32.png?v=${iconsVersion}`, sizes: "32x32", type: "image/png" },
+      { url: `/favicon-16x16.png?v=${iconsVersion}`, sizes: "16x16", type: "image/png" },
+      { url: `/branding/ignite-favicon.png?v=${iconsVersion}`, sizes: "239x239", type: "image/png" },
     ],
+    shortcut: [`/favicon.ico?v=${iconsVersion}`],
+    apple: [{ url: `/apple-icon.png?v=${iconsVersion}`, sizes: "180x180", type: "image/png" }],
   },
-    generator: 'v0.app'
+  generator: "v0.app",
 }
 
 export const viewport: Viewport = {

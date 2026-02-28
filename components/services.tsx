@@ -32,12 +32,12 @@ export function Services() {
     <section id="services" ref={servicesRef} className="py-16 md:py-24 px-6 relative z-10">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <span className="text-brand-500 font-bold uppercase tracking-widest text-xs mb-4 block">Our Expertise</span>
+          <span className="text-brand-500 font-bold uppercase tracking-widest text-xs mb-4 block">Our Services</span>
           <h2 className="text-3xl md:text-5xl font-serif font-medium text-brand-900 mb-6">
-            Tailored Solutions for Modern Enterprises
+            Audit, Tax, Accounting, and Advisory Support
           </h2>
           <p className="text-brand-600 max-w-2xl mx-auto">
-            We provide comprehensive consulting services designed to accelerate growth and optimize performance.
+            We provide professional services tailored to your compliance obligations and strategic priorities.
           </p>
         </div>
 
@@ -54,16 +54,16 @@ export function Services() {
                 ></path>
               </svg>
             </div>
-            <h3 className="text-2xl font-serif text-brand-900 mb-3">Strategic Consulting</h3>
+            <h3 className="text-2xl font-serif text-brand-900 mb-3">Audit and Assurance</h3>
             <p className="text-brand-600 leading-relaxed mb-6">
-              We deconstruct complex market dynamics to build actionable roadmaps. From market entry to mergers, our
-              strategies are built on rigorous data analysis.
+              Ensure the accuracy and integrity of your financial statements through thorough, standards-aligned audit
+              and assurance services that identify risk and improve confidence.
             </p>
             <a
               href="#contact"
               className="inline-flex items-center gap-2 text-brand-900 font-semibold text-sm group-hover:gap-3 transition-all"
             >
-              Learn More{" "}
+              Request a Consultation{" "}
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
               </svg>
@@ -82,16 +82,16 @@ export function Services() {
                 ></path>
               </svg>
             </div>
-            <h3 className="text-2xl font-serif text-brand-900 mb-3">Operational Efficiency</h3>
+            <h3 className="text-2xl font-serif text-brand-900 mb-3">Accounting</h3>
             <p className="text-brand-600 leading-relaxed mb-6">
-              Streamline workflows and optimize resource allocation to maximize ROI. We identify bottlenecks and
-              implement solutions that drive measurable improvements.
+              Keep your records accurate and up to date with dependable accounting support and financial reporting that
+              helps leadership make informed decisions.
             </p>
             <a
               href="#contact"
               className="inline-flex items-center gap-2 text-brand-900 font-semibold text-sm group-hover:gap-3 transition-all"
             >
-              Learn More{" "}
+              Request a Consultation{" "}
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
               </svg>
@@ -110,16 +110,16 @@ export function Services() {
                 ></path>
               </svg>
             </div>
-            <h3 className="text-2xl font-serif text-brand-900 mb-3">Digital Transformation</h3>
+            <h3 className="text-2xl font-serif text-brand-900 mb-3">Tax Compliance</h3>
             <p className="text-brand-600 leading-relaxed mb-6">
-              Leverage cutting-edge technology to modernize your infrastructure. We guide you through digital adoption
-              with minimal disruption and maximum impact.
+              Get practical support in tax planning, filing, health checks, audits, and VAT refund applications to
+              reduce risk and improve tax efficiency.
             </p>
             <a
               href="#contact"
               className="inline-flex items-center gap-2 text-brand-900 font-semibold text-sm group-hover:gap-3 transition-all"
             >
-              Learn More{" "}
+              Request a Consultation{" "}
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
               </svg>
@@ -138,16 +138,16 @@ export function Services() {
                 ></path>
               </svg>
             </div>
-            <h3 className="text-2xl font-serif text-brand-900 mb-3">Market Intelligence</h3>
+            <h3 className="text-2xl font-serif text-brand-900 mb-3">Business Consulting</h3>
             <p className="text-brand-600 leading-relaxed mb-6">
-              Make informed decisions with in-depth market insights. We provide deep-dive analytics that reveal hidden
-              opportunities and competitive advantages.
+              Improve financial management and business performance with advisory input on operational efficiency,
+              strategic planning, and growth-focused decisions.
             </p>
             <a
               href="#contact"
               className="inline-flex items-center gap-2 text-brand-900 font-semibold text-sm group-hover:gap-3 transition-all"
             >
-              Learn More{" "}
+              Request a Consultation{" "}
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
               </svg>

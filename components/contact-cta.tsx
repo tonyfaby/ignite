@@ -15,7 +15,7 @@ export function ContactCTA() {
     // Simulate API call
     setTimeout(() => {
       setIsSubmitting(false)
-      setMessage("Thanks! We'll be in touch shortly.")
+      setMessage("Thanks. Your request has been received and our team will contact you shortly.")
       ;(e.target as HTMLFormElement).reset()
 
       setTimeout(() => {
@@ -34,12 +34,33 @@ export function ContactCTA() {
               <div className="absolute top-0 right-0 w-96 h-96 bg-brand-800 rounded-full mix-blend-screen opacity-20 -mr-20 -mt-20 blur-3xl"></div>
 
               <div className="relative z-10">
-                <h2 className="text-3xl md:text-5xl font-serif font-medium text-white mb-4">
-                  Let's Get in Touch With Our Expert Team
-                </h2>
-                <p className="text-lg text-brand-200 mb-10 max-w-md">
-                  Book a free 30-minute discovery call to see how Ascendia can help you achieve your business goals.
+                <h2 className="text-3xl md:text-5xl font-serif font-medium text-white mb-4">Get in Touch</h2>
+                <p className="text-lg text-brand-200 mb-8 max-w-md">
+                  Reach Ignite Associates for audit, tax, accounting, and advisory support tailored to your
+                  organization.
                 </p>
+
+                <div className="grid gap-3 mb-10 text-brand-100 text-sm">
+                  <p>
+                    <span className="font-semibold text-white">Email:</span>{" "}
+                    <a href="mailto:info@ignite.co.tz" className="underline underline-offset-2 hover:text-white">
+                      info@ignite.co.tz
+                    </a>
+                  </p>
+                  <p>
+                    <span className="font-semibold text-white">Phone:</span>{" "}
+                    <a href="tel:+255717650065" className="underline underline-offset-2 hover:text-white">
+                      +255 717 650 065
+                    </a>{" "}
+                    /{" "}
+                    <a href="tel:+255718129114" className="underline underline-offset-2 hover:text-white">
+                      +255 718 129 114
+                    </a>
+                  </p>
+                  <p>
+                    <span className="font-semibold text-white">Office:</span> Victoria Green Acres House, Ground Floor
+                  </p>
+                </div>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
@@ -52,16 +73,31 @@ export function ContactCTA() {
                   </div>
                   <div>
                     <input
+                      type="text"
+                      required
+                      placeholder="Organization Name"
+                      className="w-full px-6 py-4 rounded-full bg-white/10 border border-white/20 text-white focus:outline-none focus:border-white focus:bg-white/20 transition-colors placeholder:text-brand-400 backdrop-blur-sm"
+                    />
+                  </div>
+                  <div>
+                    <input
                       type="email"
                       required
-                      placeholder="Work Email"
+                      placeholder="Email Address"
                       className="w-full px-6 py-4 rounded-full bg-white/10 border border-white/20 text-white focus:outline-none focus:border-white focus:bg-white/20 transition-colors placeholder:text-brand-400 backdrop-blur-sm"
                     />
                   </div>
                   <div>
                     <input
                       type="tel"
-                      placeholder="Phone Number (Optional)"
+                      placeholder="Phone Number"
+                      className="w-full px-6 py-4 rounded-full bg-white/10 border border-white/20 text-white focus:outline-none focus:border-white focus:bg-white/20 transition-colors placeholder:text-brand-400 backdrop-blur-sm"
+                    />
+                  </div>
+                  <div>
+                    <input
+                      type="text"
+                      placeholder="Service Needed (e.g., Audit, Tax, Accounting, Consulting)"
                       className="w-full px-6 py-4 rounded-full bg-white/10 border border-white/20 text-white focus:outline-none focus:border-white focus:bg-white/20 transition-colors placeholder:text-brand-400 backdrop-blur-sm"
                     />
                   </div>
@@ -70,7 +106,7 @@ export function ContactCTA() {
                     disabled={isSubmitting}
                     className="w-full px-6 py-4 rounded-full bg-white text-brand-900 font-bold text-lg hover:bg-brand-100 transition-colors shadow-lg flex items-center justify-center disabled:opacity-70 disabled:cursor-not-allowed"
                   >
-                    <span>{isSubmitting ? "Scheduling..." : "Call me back"}</span>
+                    <span>{isSubmitting ? "Sending request..." : "Request Consultation"}</span>
                     {isSubmitting && (
                       <svg
                         className="w-5 h-5 ml-2 animate-spin"
@@ -103,7 +139,7 @@ export function ContactCTA() {
             <div className="relative hidden lg:block">
               <Image
                 src="/images/contact-portrait.jpg"
-                alt="Contact Us"
+                alt="Ignite Associates consultant"
                 fill
                 loading="lazy"
                 className="object-cover"

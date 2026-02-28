@@ -41,17 +41,17 @@ export function Hero() {
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
               </span>
               <span className="text-xs font-semibold tracking-wide uppercase text-brand-600">
-                Available for Q4 Advisory
+                Registered Professional Firm in Tanzania
               </span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-medium text-brand-900 leading-[1.1] mb-6 text-balance reveal opacity-0 translate-y-8 transition-all duration-800 ease-out">
-              Strategic Clarity for <i className="font-serif text-brand-500">Complex Markets</i>
+              Premier <i className="font-serif text-brand-500">Audit, Tax, and Accounting</i> Services
             </h1>
 
             <p className="text-base md:text-lg text-brand-600 max-w-xl mx-auto lg:mx-0 mb-10 leading-relaxed reveal opacity-0 translate-y-8 transition-all duration-800 ease-out">
-              We partner with visionary leaders to navigate uncertainty, optimize operations, and unlock sustainable
-              growth through data-backed strategy.
+              Ignite Associates supports businesses, government institutions, and non-government organizations with
+              audit and assurance, accounting, tax compliance, and practical business consulting.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center lg:items-start lg:justify-start justify-center gap-4 reveal opacity-0 translate-y-8 transition-all duration-800 ease-out">
@@ -59,13 +59,13 @@ export function Hero() {
                 href="#contact"
                 className="w-full sm:w-auto text-center px-8 py-4 rounded-full bg-brand-900 text-white font-medium transition-all hover:bg-black shadow-xl shadow-brand-900/10"
               >
-                Start Your Journey
+                Book a Consultation
               </a>
               <a
                 href="#services"
                 className="w-full sm:w-auto text-center px-8 py-4 rounded-full bg-white border border-brand-200 text-brand-900 font-medium transition-all hover:border-brand-300 hover:bg-brand-50"
               >
-                View Case Studies
+                Explore Services
               </a>
             </div>
           </div>
@@ -75,7 +75,7 @@ export function Hero() {
             <div className="aspect-[4/5] lg:aspect-[3/4] rounded-xl bg-brand-100 overflow-hidden shadow-2xl">
               <Image
                 src="/images/hero-portrait.jpg"
-                alt="Business Professional"
+                alt="Ignite Associates professionals discussing financial strategy"
                 fill
                 priority
                 className="object-cover hover:scale-105 transition-transform duration-700 border-[0] rounded-2xl"

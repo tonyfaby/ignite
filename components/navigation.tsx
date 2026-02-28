@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { useState, useEffect } from "react"
 import { ArrowRight } from "lucide-react"
 
@@ -49,25 +50,33 @@ export function Navigation() {
         <div className="flex items-center justify-between relative">
           {/* Logo */}
           <a href="#" className="flex items-center gap-3 group relative z-50" onClick={closeMenu}>
-            <div className="w-10 h-10 bg-brand-900 rounded-full flex items-center justify-center text-white font-serif italic text-xl group-hover:scale-105 transition-transform">
-              A
-            </div>
-            <span className="text-xl font-bold text-brand-900 tracking-tight font-serif">Ascendia.</span>
+            <Image
+              src="/branding/site-logo.png"
+              alt="Ignite Associates logo"
+              width={56}
+              height={56}
+              priority
+              className="w-14 h-14 object-contain group-hover:scale-105 transition-transform"
+            />
+            <span className="text-xl font-bold text-brand-900 tracking-tight font-serif">Ignite Associates</span>
           </a>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8 lg:gap-10 absolute left-1/2 -translate-x-1/2">
+            <a href="#about" className="text-sm font-medium text-brand-900 hover:text-brand-600 transition-colors">
+              About
+            </a>
             <a href="#services" className="text-sm font-medium text-brand-900 hover:text-brand-600 transition-colors">
-              Expertise
+              Services
+            </a>
+            <a href="#values" className="text-sm font-medium text-brand-900 hover:text-brand-600 transition-colors">
+              Core Values
             </a>
             <a href="#process" className="text-sm font-medium text-brand-900 hover:text-brand-600 transition-colors">
-              Methodology
-            </a>
-            <a href="#reviews" className="text-sm font-medium text-brand-900 hover:text-brand-600 transition-colors">
-              Results
+              Approach
             </a>
             <a href="#pricing" className="text-sm font-medium text-brand-900 hover:text-brand-600 transition-colors">
-              Investment
+              Engagement
             </a>
           </div>
 
@@ -113,32 +122,39 @@ export function Navigation() {
       >
         <div className="flex flex-col items-center gap-8">
           <a
+            href="#about"
+            className="text-3xl font-serif text-brand-900 hover:text-brand-600 transition-colors"
+            onClick={closeMenu}
+          >
+            About
+          </a>
+          <a
             href="#services"
             className="text-3xl font-serif text-brand-900 hover:text-brand-600 transition-colors"
             onClick={closeMenu}
           >
-            Expertise
+            Services
+          </a>
+          <a
+            href="#values"
+            className="text-3xl font-serif text-brand-900 hover:text-brand-600 transition-colors"
+            onClick={closeMenu}
+          >
+            Core Values
           </a>
           <a
             href="#process"
             className="text-3xl font-serif text-brand-900 hover:text-brand-600 transition-colors"
             onClick={closeMenu}
           >
-            Methodology
-          </a>
-          <a
-            href="#reviews"
-            className="text-3xl font-serif text-brand-900 hover:text-brand-600 transition-colors"
-            onClick={closeMenu}
-          >
-            Results
+            Approach
           </a>
           <a
             href="#pricing"
             className="text-3xl font-serif text-brand-900 hover:text-brand-600 transition-colors"
             onClick={closeMenu}
           >
-            Investment
+            Engagement
           </a>
           <div className="pt-8">
             <a
@@ -146,7 +162,7 @@ export function Navigation() {
               className="px-8 py-4 rounded-full bg-brand-900 text-white text-lg font-semibold hover:bg-black transition-all shadow-xl shadow-brand-900/10"
               onClick={closeMenu}
             >
-              Call me back
+              Contact Us
             </a>
           </div>
         </div>
